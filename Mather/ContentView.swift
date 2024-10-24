@@ -71,7 +71,7 @@ struct MultiplierTable:View{
                             TextField("", text: $userAnswers[index]).keyboardType(.numberPad)
                         }
                         .padding()
-                        .background(correctAnswersMode ? questions[index].mainVariable * questions[index].multiplier == Int(userAnswers[index]) ? .green:.red : .clear)
+                        .background(correctAnswersMode ? questions[index].answer == Int(userAnswers[index]) ? .green:.red : .clear)
                     }
                 }
             }
@@ -121,7 +121,6 @@ struct Question{
     let mainVariable: Int
     let multiplier: Int
     let answer: Int
-    @State var userAnswer: String = ""
 }
 
 struct MatherForm: View{
